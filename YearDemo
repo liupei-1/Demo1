@@ -1,0 +1,28 @@
+package com.date.demo;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Scanner;
+
+//     计算自己出生多少天
+public class DateDemo {
+    public static void main(String[] args) throws ParseException {
+        Date date1 =new Date();
+        long l1=date1.getTime();
+
+//      出生时间
+        SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd");
+
+//      键盘录入出生日
+        Scanner sc=new Scanner(System.in);
+        System.out.println("请输入你的出生日（格式为：例如2000-08-11）");
+        String s=sc.next();
+        Date date2 = sdf.parse(s);
+        long l2=date2.getTime();
+
+//      计算出生毫秒数
+        long l3=(l1-l2)/1000/60/60/24;
+        System.out.println("你出生了"+l3+"天");
+    }
+}
